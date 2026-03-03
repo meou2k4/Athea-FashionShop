@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="FashionShop.Api/FashionShop.Api.csproj" />
+  <Project Path="FashionShop.Data/FashionShop.Data.csproj" />
+</Solution>
