@@ -12,8 +12,8 @@ export default function PublicHeader() {
     return (
         <header className="pub-header">
             <div className="container">
-                <Link to="/" className="pub-logo">
-                    ATHEA<span>.</span>
+                <Link to="/" className="pub-logo" style={{ display: 'flex', alignItems: 'center', height: '60px' }}>
+                    <img src="/logo.png" alt="ATHEA Logo" style={{ maxHeight: '120px', marginLeft: '-20px', marginTop: '7px', objectFit: 'contain', filter: 'brightness(0)' }} />
                 </Link>
                 <nav className="pub-nav">
                     <Link to="/" className={navClass(location.pathname === '/')}>Trang chủ</Link>

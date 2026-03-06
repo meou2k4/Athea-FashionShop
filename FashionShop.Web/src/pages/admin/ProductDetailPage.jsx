@@ -330,7 +330,7 @@ export default function ProductDetailPage() {
                     </div>
                 </div>
             ) : (
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: 16 }}>
                     {productDetails.map(detail => {
                         const mainImg = detail.images.find(i => i.isMain) || detail.images[0];
                         return (
@@ -349,33 +349,39 @@ export default function ProductDetailPage() {
                                             </div>
                                         )}
                                     </div>
-                                    <div>
-                                        <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 14 }}>
-                                            <span style={{ width: 16, height: 16, borderRadius: '50%', background: detail.color.hex, border: '1px solid #ccc', display: 'inline-block', flexShrink: 0 }} />
-                                            <strong style={{ fontSize: 15 }}>{detail.color.name}</strong>
-                                            <span style={{ fontSize: 12, color: 'var(--text-muted)' }}>• {detail.images.length} ảnh</span>
+                                    <div style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
+                                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 14 }}>
+                                            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                                                <span style={{ width: 16, height: 16, borderRadius: '50%', background: detail.color.hex, border: '1px solid #ccc', display: 'inline-block', flexShrink: 0 }} />
+                                                <strong style={{ fontSize: 15 }}>{detail.color.name}</strong>
+                                                <span style={{ fontSize: 12, color: 'var(--text-muted)' }}>• {detail.images.length} ảnh</span>
+                                            </div>
+                                            <div>
+                                                <button className="btn btn-outline btn-sm" onClick={() => handleEdit(detail)}>✏️ Sửa / Ảnh</button>
+                                            </div>
                                         </div>
                                         <div className="table-wrapper">
-                                            <table style={{ fontSize: 13 }}>
+                                            <table style={{ fontSize: 13, width: '100%' }}>
                                                 <thead>
-                                                    <tr><th>Size</th><th>Giá riêng</th><th></th></tr>
+                                                    <tr>
+                                                        <th style={{ width: '80px', textAlign: 'left' }}>Size</th>
+                                                        <th style={{ textAlign: 'left' }}>Giá riêng</th>
+                                                        <th style={{ width: '60px', textAlign: 'right' }}></th>
+                                                    </tr>
                                                 </thead>
                                                 <tbody>
                                                     {detail.variants.map(v => (
                                                         <tr key={v.id}>
-                                                            <td><span className="badge badge-primary">{v.sizeName}</span></td>
-                                                            <td>
+                                                            <td style={{ textAlign: 'left' }}><span className="badge badge-primary">{v.sizeName}</span></td>
+                                                            <td style={{ textAlign: 'left' }}>
                                                                 {v.price ? <strong style={{ color: 'var(--primary)' }}>{v.price.toLocaleString('vi-VN')}</strong> : <span style={{ color: 'var(--text-muted)', fontSize: 12 }}>Giá gốc</span>}
                                                             </td>
-                                                            <td><button className="btn btn-danger btn-sm" onClick={() => handleDeleteVariant(v.id)}>🗑️</button></td>
+                                                            <td style={{ textAlign: 'right' }}><button className="btn btn-danger btn-sm" onClick={() => handleDeleteVariant(v.id)}>🗑️</button></td>
                                                         </tr>
                                                     ))}
                                                 </tbody>
                                             </table>
                                         </div>
-                                    </div>
-                                    <div style={{ display: 'flex', gap: 10 }}>
-                                        <button className="btn btn-outline btn-sm" onClick={() => handleEdit(detail)}>✏️ Sửa / Ảnh</button>
                                     </div>
                                 </div>
                             </div>

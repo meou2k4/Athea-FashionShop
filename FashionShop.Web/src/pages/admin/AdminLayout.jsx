@@ -22,8 +22,8 @@ export default function AdminLayout() {
         <div className="admin-layout">
             {/* Sidebar */}
             <aside className="sidebar">
-                <div className="sidebar-logo">
-                    <span>👗</span> FashionShop
+                <div className="sidebar-logo" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '60px', overflow: 'hidden', padding: '0' }}>
+                    <img src="/logo.png" alt="ATHEA Logo" style={{ maxHeight: '120px', marginLeft: '-20px', marginTop: '7px', objectFit: 'contain', filter: 'brightness(0)' }} />
                 </div>
                 <nav className="sidebar-nav">
                     {navItems.map((item) => (

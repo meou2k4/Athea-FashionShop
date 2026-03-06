@@ -29,9 +29,10 @@ export default function LoginPage() {
     return (
         <div className="login-page">
             <div className="login-card">
-                <div className="login-logo">
-                    <div className="logo-icon">👗</div>
-                    <h1>FashionShop</h1>
+                <div className="login-logo" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', height: '140px', overflow: 'hidden', justifyContent: 'center', marginBottom: '12px' }}>
+                    <img src="/logo.png" alt="ATHEA" style={{ height: '200px', filter: 'brightness(0)' }} />
+                </div>
+                <div style={{ textAlign: 'center' }}>
                     <p>Trang quản trị viên</p>
                 </div>
 
